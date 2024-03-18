@@ -5,8 +5,9 @@
     spacing: 2
     elevation: 0
 
+    
     MDBoxLayout:
-        padding: 2
+        padding: 1
         adaptive_height: True
 
         OneLineAvatarListItem:
@@ -15,17 +16,18 @@
             _no_ripple_effect: True
 
             ImageLeftWidget:
-                source: root.avatar 
-                radius: [20, ]
-        
+                radius: [15,]
+                source: root.profile_pic 
+                      
         MDIconButton:
             icon: 'dots-vertical'
-    
 
     # Post
-    FitImage:
+    AsyncImage:
         adaptive_height: True
         source: root.post
+        allow_stretch: True  # Allow the image to stretch to fit the available space
+        keep_ratio: False   # Ignore the aspect ratio of the image
 
     # Reactions
     MDBoxLayout:
@@ -35,19 +37,21 @@
 
 
         MDIconButton:
-            icon: 'heart-outline'
-        
+            
+            icon:'heart' if root.liked == 1 else 'heart-outline'
+            on_release: root.like_post() 
+          
+                
+               
+            
+                 
+
         MDIconButton:
             icon: 'message-outline'
         
-        MDIconButton:
-            icon: 'send-outline'
         
-        Widget:
-
-        MDIconButton:
-            icon: 'bookmark-outline'
-
+        
+ 
 
     MDBoxLayout:
         orientation: 'vertical'
@@ -56,6 +60,7 @@
         adaptive_height: True 
 
         MyLabel:   
+            id : likescount
             text: f'{root.likes} likes'
             bold: True 
 
@@ -63,8 +68,6 @@
             markup: True
             text: f'[b]{root.username}[/b] {root.caption}'   
 
-        HalfOpacityLabel:
-            text: f'View all {root.comments} comments'
     
 
     MDBoxLayout:
@@ -72,24 +75,7 @@
         spacing: 2
         adaptive_height: True 
 
-        FitImage:
-            source: root.profile_pic
-            size_hint: None, None
-            size: 20, 20
-            radius: [20, ]
-        
-        HalfOpacityLabel:
-            text: 'Add a comment...'
-    
-    MDBoxLayout:
-        padding: 9, 0, 0, 0
-        spacing: 0
-        adaptive_height: True 
-
-        HalfOpacityLabel:
-            font_size: 10
-            text: f'{root.posted_ago} ago'
-
+       
 
 
 

@@ -1,23 +1,26 @@
 <BottomNav>:
     adaptive_height: True
-    spacing: 10
-    padding: 10
+    spacing: 60
+    padding: 15
+    color: 'Gray'
 
     MDIconButton:
-        icon: 'home'
-    
-    MDIconButton:
         icon: 'magnify'
-    
+        md_bg_color: 0, 1, 1, 1  
+        theme_text_color: 'Custom'  
+        text_color: 1, 1, 1, 1  
+        on_release: root.users()
+  
     MDIconButton:
-        icon: 'movie'
-    
+        icon: 'plus'
+        md_bg_color: 0.992, 0.114, 0.114, 1   
+        theme_text_color: 'Custom'  
+        text_color: 1, 1, 1, 1  
+        on_release: root.addpost()
+
     MDIconButton:
-        icon: 'heart-outline'
-    
-    FitImage:
-        source: root.avatar
-        size_hint: None, None
-        size: 25, 25
-        radius: [25,]
-        pos_hint: {"center_x": 0.5,"center_y": 0.5}
+        icon: 'account'
+        md_bg_color: 0, 1, 1, 1 
+        theme_text_color: 'Custom'  
+        text_color: 1, 1, 1, 1  
+        on_release:root.UserProfile()

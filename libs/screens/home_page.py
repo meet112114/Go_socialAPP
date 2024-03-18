@@ -1,39 +1,48 @@
 from kivymd.uix.screen import MDScreen
-
-
 import json
+
+import requests
 from libs.components.post_card import PostCard
-
-from libs.components.circular_avatar_image import CircularAvatarImage
-
+from kivy.storage.jsonstore import JsonStore
+store = JsonStore('config.json')
 
 class HomePage(MDScreen):
-    profile_picture = 'https://images.unsplash.com/photo-1623065691913-e9a650810efd?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-
-    def on_enter(self):
-        self.list_stories()
+   
+    def on_enter(self): 
         self.list_posts()
-
-    def list_stories(self):
-        with open('assets/data/stories.json') as f_obj:
-            data = json.load(f_obj)
-            for name in data:
-                self.ids.stories.add_widget(CircularAvatarImage(
-                    avatar = data[name]['avatar'],
-                    name = name
-                ))
+                
     
+
     def list_posts(self):
-        with open('assets/data/posts.json') as f_obj:
-            data = json.load(f_obj)
-            for username in data:
+        api_url = "http://localhost:8000/posts/"
+        response = requests.get(api_url)
+
+        if response.status_code == 200:
+            posts = response.json() 
+            for post in posts:
+                userid = post['user']
+                api_url = f"http://localhost:8000/user/{userid}/"
+                response = requests.get(api_url)
+                response_dict = json.loads(response.text)
+                username = response_dict['username']
+                profile_pic = response_dict['image']
+                auth_token = store.get('user')['token']
+                headers = {'Authorization': f'Token {auth_token}'}
+                like_url = f"http://localhost:8000/post/like/{post['id']}/"
+                response1 = requests.get(like_url,headers=headers)
+                print(response1.text)
+                response_dict2 = json.loads(response1.text)
+                likes = response_dict2['likes_count']
+
                 self.ids.timeline.add_widget(PostCard(
-                    username = username,
-                    avatar = data[username]['avatar'],
-                    profile_pic = self.profile_picture,
-                    post = data[username]['post'],
-                    caption = data[username]['caption'],
-                    likes = data[username]['likes'],
-                    comments = data[username]['comments'],
-                    posted_ago = data[username]['posted_ago'],
-                ))
+                    profile_pic = profile_pic,
+                    username=username,
+                    caption=post['title'],
+                    post=post['image'],
+                    post_id = post['id'],
+                    likes=f"{likes}"
+                    ))
+        else:
+            print("Failed to fetch posts:", response.text)
+    
+    

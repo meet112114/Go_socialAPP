@@ -1,0 +1,63 @@
+<LoginScreen>:
+    Screen:
+        Image:
+            source: "libs/components/images/login.jpg"
+            size_hint : None, None
+            width : "360dp"
+            height : "640dp"
+            pos_hint : {'center_x':.5 , 'center_y':.5}
+        MDTextField:
+            id : email
+            hint_text: "email" 
+            icon_right : "account"
+            font_size: "18dp"
+            size_hint_x: .85
+            pos_hint : {'center_x':.5 , 'center_y':.65}
+            on_text : self.text = self.text.replace(" ","")
+        MDTextField:
+            id : passwd
+            hint_text: "password" 
+            password : True
+            icon_right : "eye"
+            font_size: "18dp"
+            size_hint_x: .85
+            pos_hint : {'center_x':.5 , 'center_y':.5}
+            on_text : self.text = self.text.replace(" ","")
+        BoxLayout:
+            size_hint:.85 , None
+            height : "30dp"
+            spacing : "5dp"
+            pos_hint : {'center_x':.5 , 'center_y':.4}
+            MDCheckbox:
+                id : cb 
+                size_hint : None ,None
+                width : "30dp"
+                height : "30dp"
+                pos_hint : {'center_x':.5 , 'center_y':.5}
+                on_press:
+                    passwd.password = False if passwd.password == True else True
+                    passwd.icon_right = "eye" if passwd.icon_right == "eye-off" else "eye-off"
+            MDLabel:
+                text: "[ref=show password] Show password [/ref] "
+                markup : True
+                pos_hint : {'center_x':.5 , 'center_y':.5}
+                on_ref_press:
+                    cb.active = False if cb.active == True else True
+                    passwd.password = False if passwd.password == True else True
+        BoxLayout:
+            size_hint:.65 , None
+            pos_hint : {'center_x':.5 , 'center_y':.28}
+            height : "30dp"
+            spacing : "5dp"
+            MDFlatButton:
+                text: "SIGN IN"
+                font_size: "20dp"
+                size_hint_x: 1
+                md_bg_color: "#4BF8F4"
+                on_release: root.login() 
+            MDFlatButton:
+                text: "SIGN UP"
+                font_size: "20dp"
+                size_hint_x: 1
+                md_bg_color: "#EC4F1A"
+                on_press: root.go_to_create_account()
