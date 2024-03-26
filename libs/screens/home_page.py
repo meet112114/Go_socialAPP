@@ -24,9 +24,15 @@ class HomePage(MDScreen):
             announcements_layout.clear_widgets() 
             for post in posts:
 
+                userid = post['user']
+                api_url1 = f"http://192.168.0.116:8000/user/{userid}/"
+                response1 = requests.get(api_url1)
+                response_dict = json.loads(response1.text)
+                username = response_dict['username']
+
                 self.ids.timeline.add_widget(PostCard(
                     profile_pic = self.profile_pic,
-                    username='NES Polytechnic',
+                    username = username,
                     caption=post['title'],
                     post=post['image'],
                     post_id = post['id']
