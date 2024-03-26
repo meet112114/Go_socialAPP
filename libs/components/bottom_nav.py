@@ -7,17 +7,27 @@ from kivy.app import App
 class BottomNav(MDBoxLayout):
     avatar = StringProperty()
 
-    def addpost(self):
+    def EE(self):
         app = App.get_running_app()
         screen_manager = app.root
-        screen_manager.current = 'add_post'
+        screen_manager.current = 'Ee'
     
-    def users(self):
+    def CO(self):
         app = App.get_running_app()
         screen_manager = app.root
-        screen_manager.current = 'users'
+        screen_manager.current = 'Co'
 
-    def UserProfile(self):
+    def EJ(self):
         app = App.get_running_app()
         screen_manager = app.root
-        screen_manager.current = 'UserProfile'
+        screen_manager.current = 'Ej'
+
+    def ME(self):
+        app = App.get_running_app()
+        screen_manager = app.root
+        screen_manager.current = 'Me'
+
+    def IF(self):
+        app = App.get_running_app()
+        screen_manager = app.root
+        screen_manager.current = 'If'

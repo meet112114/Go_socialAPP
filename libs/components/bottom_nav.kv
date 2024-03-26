@@ -1,26 +1,55 @@
 <BottomNav>:
+    orientation: 'horizontal'
     adaptive_height: True
-    spacing: 60
-    padding: 15
-    color: 'Gray'
+    padding: 10
+    spacing: 10
 
-    MDIconButton:
-        icon: 'magnify'
-        md_bg_color: 0, 1, 1, 1  
-        theme_text_color: 'Custom'  
-        text_color: 1, 1, 1, 1  
-        on_release: root.users()
-  
-    MDIconButton:
-        icon: 'plus'
-        md_bg_color: 0.992, 0.114, 0.114, 1   
-        theme_text_color: 'Custom'  
-        text_color: 1, 1, 1, 1  
-        on_release: root.addpost()
+    MDTextButton:
+        text: ' CO '
+        size_hint_x: None
+        padding_x: '10dp'  
+        padding_y: '5dp'   
+        md_bg_color: 0, 1, 1, 1
+        theme_text_color: 'Custom'
+        text_color: 1, 1, 1, 1
+        on_release: root.CO()
 
-    MDIconButton:
-        icon: 'account'
-        md_bg_color: 0, 1, 1, 1 
-        theme_text_color: 'Custom'  
-        text_color: 1, 1, 1, 1  
-        on_release:root.UserProfile()
+    MDTextButton:
+        text: ' ME '
+        size_hint_x: None
+        padding_x: '10dp' 
+        padding_y: '5dp'   
+        md_bg_color: 0, 1, 1, 1
+        theme_text_color: 'Custom'
+        text_color: 1, 1, 1, 1
+        on_release: root.ME()
+
+    MDTextButton:
+        text: ' IF '
+        size_hint_x: None
+        padding_x: '10dp'  
+        padding_y: '5dp'   
+        md_bg_color: 0, 1, 1, 1
+        theme_text_color: 'Custom'
+        text_color: 1, 1, 1, 1
+        on_release: root.IF()
+
+    MDTextButton:
+        text: ' EE '
+        size_hint_x: None
+        padding_x: '10dp'  
+        padding_y: '5dp'  
+        md_bg_color: 0, 1, 1, 1
+        theme_text_color: 'Custom'
+        text_color: 1, 1, 1, 1
+        on_release: root.EE()
+
+    MDTextButton:
+        text: ' EJ '
+        size_hint_x: None
+        padding_x: '10dp'  
+        padding_y: '5dp'   
+        md_bg_color: 0, 1, 1, 1
+        theme_text_color: 'Custom'
+        text_color: 1, 1, 1, 1
+        on_release: root.EJ()
