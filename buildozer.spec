@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Go_Social
+title = myapp
 
 # (str) Package name
 package.name = myapp
