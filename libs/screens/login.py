@@ -20,7 +20,7 @@ class LoginScreen(Screen):
         
         email = self.ids.email.text
         password = self.ids.passwd.text
-        url = 'http://localhost:8000/user/login/' 
+        url = 'http://192.168.0.116:8000/user/login/' 
         payload = {'email': email, 'password': password}
         try:
             response = requests.post(url, data=payload)
@@ -63,9 +63,8 @@ class LoginScreen(Screen):
             else:
                 print("Login failed. Please check your credentials.")
 
-        # except ConnectionError:
-        #     self.manager.current = 'error'
         except requests.ConnectionError:
+             print()
              self.manager.current = 'error'
            
     def go_to_create_account(self):

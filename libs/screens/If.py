@@ -11,7 +11,7 @@ class IfScreen(MDScreen):
         self.list_announce()
 
     def list_announce(self):
-        api_url = "http://localhost:8000/announce/get/if/"
+        api_url = "http://192.168.0.116:8000/announce/get/if/"
         response = requests.get(api_url)
         print(response.text)
         if response.status_code == 200:

@@ -15,11 +15,13 @@ class HomePage(MDScreen):
   
 
     def list_posts(self):
-        api_url = "http://localhost:8000/posts/"
+        api_url = "http://192.168.0.116:8000/posts/"
         response = requests.get(api_url)
 
         if response.status_code == 200:
             posts = response.json() 
+            announcements_layout = self.ids.timeline
+            announcements_layout.clear_widgets() 
             for post in posts:
 
                 self.ids.timeline.add_widget(PostCard(
