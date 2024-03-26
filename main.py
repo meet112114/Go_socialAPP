@@ -17,7 +17,7 @@ from libs.screens.Ej import EjScreen
 class GoSocialApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Cyan"
-        Window.size = [300, 600]
+        Window.size = [300, 600] 
         self.load_all_kv_files()
         sm = ScreenManager()
         sm.add_widget(LoginScreen(name='login'))

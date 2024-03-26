@@ -1,8 +1,23 @@
+#: import AppBar2 libs.components.appbar2.AppBar2
 <IfScreen>:
-    Screen:
-        Image:
-            source: "libs/components/images/login.jpg"
-            size_hint : None, None
-            width : "360dp"
-            height : "640dp"
-            pos_hint : {'center_x':.5 , 'center_y':.5}
+    md_bg_color: get_color_from_hex("#FFFFFF")
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        # Appbar
+        AppBar2:
+
+        MDBoxLayout:
+            
+            ScrollView:
+                bar_width: 0
+
+                MDBoxLayout:
+                    adaptive_height: True
+
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        id: announcements
+                        spacing: 10

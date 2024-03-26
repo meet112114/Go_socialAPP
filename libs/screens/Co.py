@@ -18,7 +18,9 @@ class CoScreen(MDScreen):
         response = requests.get(api_url)
         print(response.text)
         if response.status_code == 200:
-            Lists = response.json() 
+            Lists = response.json()
+            announcements_layout = self.ids.announcements
+            announcements_layout.clear_widgets() 
             for list in Lists:
                 print(list['created_at'])
                 self.ids.announcements.add_widget(List(

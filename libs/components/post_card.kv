@@ -1,7 +1,7 @@
 <PostCard>:
     orientation: 'vertical'
     size_hint_y: None
-    height: "420dp"
+    height: "380dp"
     spacing: 2
     elevation: 0
 
@@ -34,23 +34,6 @@
         padding: 5, 0, 0, 0         
         spacing: 2
         adaptive_height: True 
-
-
-        MDIconButton:
-            
-            icon:'heart' if root.liked == 1 else 'heart-outline'
-            on_release: root.like_post() 
-          
-                
-               
-            
-                 
-
-        MDIconButton:
-            icon: 'message-outline'
-        
-        
-        
  
 
     MDBoxLayout:
@@ -58,11 +41,6 @@
         padding: 5, 0, 0, 0  
         spacing: 2
         adaptive_height: True 
-
-        MyLabel:   
-            id : likescount
-            text: f'{root.likes} likes'
-            bold: True 
 
         MyLabel:
             markup: True
