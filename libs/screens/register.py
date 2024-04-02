@@ -21,7 +21,7 @@ class CreateAccountScreen(Screen):
         password = self.ids.passwd.text
         
         # Make a request to the backend with the username and password
-        url = 'http://192.168.0.116:8000/user/create/'  # Replace with your actual backend URL
+        url = 'http://localhost:8000/user/create/'  # Replace with your actual backend URL
         payload = {'first_name':first_name ,'last_name' : last_name , 'username' : username , 'bio':bio ,  'email': email, 'password': password}
         response = requests.post(url, data=payload)
 
