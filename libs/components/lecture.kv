@@ -1,0 +1,53 @@
+#:import AppBar1 libs.components.appbar.AppBar1
+<Lecture>:
+    md_bg_color: get_color_from_hex("#FFFFFF")
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_y': 0.8}
+
+        # Appbar
+        AppBar1:
+
+    
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: "20dp"
+            padding: "10dp"
+            size_hint_y: None
+            height: self.minimum_height
+            pos_hint: {'center_x':0.75 }
+            
+            
+
+            Button:
+                text: 'CO'
+                on_release: root.gotoco()
+                size_hint: None, None
+                size: "135dp", "50dp"
+
+            Button:
+                text: 'IF'
+                on_release: root.gotoif()
+                size_hint: None, None
+                size: "135dp", "50dp"
+
+            Button:
+                text: 'ME'
+                on_release: root.gotome()
+                size_hint: None, None
+                size: "135dp", "50dp"
+
+            Button:
+                text: 'EE'
+                on_release: root.gotoee()
+                size_hint: None, None
+                size: "135dp", "50dp"
+
+            Button:
+                text: 'EJ'
+                on_release: root.gotoej()
+                size_hint: None, None
+                size: "135dp", "50dp"
+        
+        

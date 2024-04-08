@@ -1,0 +1,87 @@
+#:import AppBar1 libs.components.appbar.AppBar1
+<PreHomePage>:
+    md_bg_color: get_color_from_hex("#FFFFFF")
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        # Appbar
+        AppBar1:
+        
+        AsyncImage:
+            source: 'libs/components/images/clg.jpeg'  # Replace 'your_image_path.jpg' with the path to your image file
+            size_hint_y: None
+            height: dp(250)
+        
+        BoxLayout:
+            size_hint_y: None
+            pos_hint: {'center_y': 0.35}
+            orientation: 'horizontal'
+            spacing: "10dp"
+            padding: "10dp"
+
+            Button:
+                text: 'Website'
+                on_release: root.gotoweb()
+                size_hint: None, None
+                size: "135dp", "60dp"
+                # background_color: 0.2, 0.2, 0.2, 1
+                    
+            Button:
+                text: "Lectures"
+                on_release: root.gotolecture()
+                size_hint: None, None
+                size: "135dp", "60dp"
+                # background_color: 0.2, 0.2, 0.2, 1
+                
+
+
+        BoxLayout:
+            size_hint_y: None
+            pos_hint: {'center_y': 0.25}
+            orientation: 'horizontal'
+            spacing: "10dp"
+            padding: "10dp"
+
+            Button:
+                text: 'Posts'
+                on_release: root.gotohome()
+                size_hint: None, None
+                size: "135dp", "60dp"
+                # background_color: 0.2, 0.2, 0.2, 1
+
+                    
+            Button:
+                text: "Announcements"
+                on_release: root.gotopreann()
+                size_hint: None, None
+                size: "135dp", "60dp"
+                # background_color: 0.2, 0.2, 0.2, 1
+
+                
+        BoxLayout:
+            size_hint_y: None
+            pos_hint: {'center_y': 0.15}
+            orientation: 'horizontal'
+            spacing: "10dp"
+            padding: "10dp"
+
+            Button:
+                text: 'Sports '
+                on_release: root.gotosports()
+                size_hint: None, None
+                size: "135dp", "60dp"
+                # background_color: 0.2, 0.2, 0.2, 1
+                    
+            Button:
+                text: "Complaint"
+                on_release: root.gotocomplaint()
+                size_hint: None, None
+                size: "135dp", "60dp"
+                # background_color: 0.2, 0.2, 0.2, 1
+        
+    
+
+
+
+        

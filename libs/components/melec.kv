@@ -1,0 +1,23 @@
+#: import AppBar3 libs.components.appbar3.AppBar3
+<Melec>:
+    md_bg_color: get_color_from_hex("#FFFFFF")
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        # Appbar
+        AppBar3:
+
+        MDBoxLayout:
+            
+            ScrollView:
+                bar_width: 0
+
+                MDBoxLayout:
+                    adaptive_height: True
+
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        id: lectureList
+                        spacing: 10

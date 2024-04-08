@@ -58,7 +58,7 @@ class LoginScreen(Screen):
                     Token = response_data["message"]
                     print(Token)
                     store.put('user', token = Token)
-                    self.manager.current = 'home'
+                    self.manager.current = 'pre_home'
 
             else:
                 print("Login failed. Please check your credentials.")

@@ -1,10 +1,11 @@
-<AppBar@MDBoxLayout>:
+<AppBar1>:
     padding: '5dp'
     adaptive_height: True
 
     MDIconButton:
-        icon: 'diamond-outline'
+        icon: 'arrow-left'
         color: 'white'
+        on_release: root.gotohome()
     
     MDLabel:
         text: 'NES_Social'

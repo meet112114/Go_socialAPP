@@ -1,0 +1,52 @@
+#:import AppBarS libs.components.appbars.AppBarS
+<Complaint>:
+    Screen:
+        Image:
+            source: "libs/components/images/login.jpg"
+            size_hint : None, None
+            width : "360dp"
+            height : "640dp"
+            pos_hint : {'center_x':.5 , 'center_y':.5}
+
+        
+        AppBarS:
+        
+        MDTextField:
+            id : name
+            hint_text: "Name" 
+            font_size: "18dp"
+            size_hint_x: .55
+            pos_hint : {'center_x':.5 , 'center_y':.75}
+            on_text : self.text = self.text.replace(" ","")
+        MDTextField:
+            id : enrollmentId
+            hint_text: "EnrollmentId" 
+            font_size: "18dp"
+            size_hint_x: .55
+            pos_hint : {'center_x':.5 , 'center_y':.65}
+            on_text : self.text = self.text.replace(" ","")
+        MDTextField:
+            id : yearAndDept
+            hint_text: "Dept e.g.(F.Y.I.F)" 
+            font_size: "18dp"
+            size_hint_x: .55
+            pos_hint : {'center_x':.5 , 'center_y':.55}
+            on_text : self.text = self.text.replace(" ","")
+        MDTextField:
+            id :Complaint
+            hint_text: "Complaint/suggestion" 
+            font_size: "18dp"
+            size_hint_x: .55
+            pos_hint : {'center_x':.5 , 'center_y':.45}
+            on_text : self.text = self.text.replace(" ","")
+        BoxLayout:
+            size_hint:.65 , None
+            pos_hint : {'center_x':.5 , 'center_y':.25}
+            height : "30dp"
+            spacing : "5dp"
+            MDFlatButton:
+                text: "Post"
+                font_size: "20dp"
+                size_hint_x: 1
+                md_bg_color: "#EC4F1A"
+                on_press: root.apply()

@@ -1,0 +1,27 @@
+<LecList>:
+    orientation: 'vertical'
+    size_hint_y: None
+    elevation: 0
+    md_bg_color: 0.2, 0.2, 0.2, 1
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+        Label:
+            text: root.title
+            font_size: '12sp' 
+            color: "white"
+        MDLabel:
+            text: 'Date & Time : ' + root.time
+            font_size: '14sp'
+            color: "white"
+        MDLabel:
+            text:'Password : ' + root.password
+            font_size: '14sp'
+            color: "white"
+        Button:
+            pos_hint: {'center_x': 0.5}
+            text: 'Join Lec '
+            size_hint_x: None
+            width: dp(200)
+            on_release: root.open_link(root.link)

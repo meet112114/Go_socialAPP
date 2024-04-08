@@ -8,4 +8,4 @@ class AppBar2(MDBoxLayout):
     def go_to_home(self):
         app = App.get_running_app()
         screen_manager = app.root
-        screen_manager.current = 'home'
+        screen_manager.current = 'pre_home'
